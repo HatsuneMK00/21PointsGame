@@ -13,6 +13,8 @@ public class StandHandler extends Handler {
 
 //    处理一次玩家stand的逻辑
 //    玩家id和所有可能的需要的数据都在request里面
+    //    类似其他handler的说明
+
     @Override
     protected ArrayList<GameStatus> echo(Request request) {
         return null;

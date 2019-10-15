@@ -16,38 +16,38 @@ public class GameRunner {
     private Dealer dealer = new Dealer();
     private Judge judge = new Judge();
     private int round = 0;
-
-//    游戏各个玩家赌注的初始化
-//    庄家没有赌注 玩家0号为庄家！
-    public void initGameSetting(int[] bets) {
-
-    }
-//    这个方法调用后为各发两张牌的状态
-    public ArrayList<GameStatus> startGame(){
-        return null;
-    }
-//    这个方法调用后为用户id为{id}的用户抽了一张牌后的状态
-    public ArrayList<GameStatus> hit(int id){
-        return null;
-    }
-//    这个方法调用后为用户id为{id}的用户分牌后的状态
-    public ArrayList<GameStatus> split(int id){
-        return null;
-    }
-//    类似上面的说明
-    public ArrayList<GameStatus> stand(int id) {
-        return null;
-    }
-//    类似上面的说明
-    public ArrayList<GameStatus> doubleBet(int id) {
-        return null;
-    }
-
-    public int getRound() {
-        return round;
-    }
-
-    public void setRound(int round) {
-        this.round = round;
-    }
+//
+////    游戏各个玩家赌注的初始化
+////    庄家没有赌注 玩家0号为庄家！
+//    public void initGameSetting(int[] bets) {
+//
+//    }
+////    这个方法调用后为各发两张牌的状态
+//    public ArrayList<GameStatus> startGame(){
+//        return null;
+//    }
+////    这个方法调用后为用户id为{id}的用户抽了一张牌后的状态
+//    public ArrayList<GameStatus> hit(int id){
+//        return null;
+//    }
+////    这个方法调用后为用户id为{id}的用户分牌后的状态
+//    public ArrayList<GameStatus> split(int id){
+//        return null;
+//    }
+////    类似上面的说明
+//    public ArrayList<GameStatus> stand(int id) {
+//        return null;
+//    }
+////    类似上面的说明
+//    public ArrayList<GameStatus> doubleBet(int id) {
+//        return null;
+//    }
+//
+//    public int getRound() {
+//        return round;
+//    }
+//
+//    public void setRound(int round) {
+//        this.round = round;
+//    }
 }

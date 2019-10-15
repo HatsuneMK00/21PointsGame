@@ -13,6 +13,8 @@ public class StartGameHandler extends Handler {
 
 //    处理一次玩家开始游戏（发两张牌）的逻辑
 //    玩家id和所有可能的需要的数据都在request里面
+    //    这个方法调用后为各发两张牌的状态
+
     @Override
     protected ArrayList<GameStatus> echo(Request request) {
         return null;

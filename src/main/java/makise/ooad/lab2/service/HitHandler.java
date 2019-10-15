@@ -13,6 +13,8 @@ public class HitHandler extends Handler {
 
 //    处理一次玩家hit的逻辑
 //    玩家id和所有可能的需要的数据都在request里面
+    //    这个方法调用后为用户id为{id}的用户抽了一张牌后的状态
+
     @Override
     protected ArrayList<GameStatus> echo(Request request) {
         return null;

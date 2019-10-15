@@ -2,6 +2,9 @@ package makise.ooad.lab2.service;
 
 import makise.ooad.lab2.entity.GameStatus;
 import makise.ooad.lab2.entity.Request;
+import makise.ooad.lab2.pointgame.Dealer;
+import makise.ooad.lab2.pointgame.Judge;
+import makise.ooad.lab2.pointgame.Player;
 
 import java.util.ArrayList;
 
