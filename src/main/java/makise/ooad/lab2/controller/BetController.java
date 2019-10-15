@@ -1,6 +1,7 @@
 package makise.ooad.lab2.controller;
 
 import makise.ooad.lab2.entity.GameStatus;
+import makise.ooad.lab2.entity.Response;
 import makise.ooad.lab2.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,12 +20,7 @@ public class BetController {
 
 //    不知道数组放在url里传不传的过来
     @GetMapping("bet")
-    public ArrayList<GameStatus> bet(@RequestParam("bets") int[] bets){
-        return gameService.startGame(bets);
-    }
-
-    @GetMapping("double/{id}")
-    public ArrayList<GameStatus> doubleBet(@PathVariable("id") int playerId){
-        return gameService.doubleBet(playerId);
+    public Response bet(@RequestParam("bets") int[] bets){
+        return null;
     }
 }

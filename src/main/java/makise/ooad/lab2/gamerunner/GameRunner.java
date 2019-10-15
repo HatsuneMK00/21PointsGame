@@ -1,7 +1,8 @@
-package makise.ooad.lab2.service;
+package makise.ooad.lab2.gamerunner;
 
 import makise.ooad.lab2.entity.GameStatus;
 import makise.ooad.lab2.entity.Request;
+import makise.ooad.lab2.entity.Response;
 
 import java.util.ArrayList;
 
@@ -32,8 +33,8 @@ public abstract class GameRunner {
         return nextGameRunner;
     }
 
-    public ArrayList<GameStatus> handleRequest(Request request) {
-        ArrayList<GameStatus> response = null;
+    public Response handleRequest(Request request) {
+        Response response = null;
 //        注意这里如果level是对象的话 使用equal方法
         if (request.getLevel().equals(this.getHandlerLevel())) {
             response = this.echo(request);
@@ -50,5 +51,5 @@ public abstract class GameRunner {
 
     abstract protected String getHandlerLevel();
 
-    abstract protected ArrayList<GameStatus> echo(Request request);
+    abstract protected Response echo(Request request);
 }

@@ -1,7 +1,8 @@
-package makise.ooad.lab2.service;
+package makise.ooad.lab2.gamerunner;
 
 import makise.ooad.lab2.entity.GameStatus;
 import makise.ooad.lab2.entity.Request;
+import makise.ooad.lab2.entity.Response;
 
 import java.util.ArrayList;
 
@@ -16,7 +17,7 @@ public class SplitGameRunner extends GameRunner {
     //    这个方法调用后为用户id为{id}的用户分牌后的状态
 
     @Override
-    protected ArrayList<GameStatus> echo(Request request) {
+    protected Response echo(Request request) {
         return null;
     }
 }
