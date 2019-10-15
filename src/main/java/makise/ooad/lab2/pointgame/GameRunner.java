@@ -38,7 +38,7 @@ public class GameRunner {
     public ArrayList<GameStatus> stand(int id) {
         return null;
     }
-//类似上面的说明
+//    类似上面的说明
     public ArrayList<GameStatus> doubleBet(int id) {
         return null;
     }
