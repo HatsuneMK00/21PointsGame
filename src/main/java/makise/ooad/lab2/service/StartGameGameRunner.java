@@ -5,15 +5,16 @@ import makise.ooad.lab2.entity.Request;
 
 import java.util.ArrayList;
 
-public class DoubleHandler extends Handler {
+public class StartGameGameRunner extends GameRunner {
     @Override
     protected String getHandlerLevel() {
-        return "double";
+        return "start";
     }
 
-//    处理一次玩家double的逻辑
+//    处理一次玩家开始游戏（发两张牌）的逻辑
 //    玩家id和所有可能的需要的数据都在request里面
-//    类似其他handler的说明
+    //    这个方法调用后为各发两张牌的状态
+
     @Override
     protected ArrayList<GameStatus> echo(Request request) {
         return null;

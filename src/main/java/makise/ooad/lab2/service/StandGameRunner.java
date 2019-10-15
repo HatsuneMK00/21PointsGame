@@ -5,7 +5,7 @@ import makise.ooad.lab2.entity.Request;
 
 import java.util.ArrayList;
 
-public class StandHandler extends Handler {
+public class StandGameRunner extends GameRunner {
     @Override
     protected String getHandlerLevel() {
         return "stand";

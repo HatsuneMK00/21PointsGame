@@ -1,7 +1,6 @@
 package makise.ooad.lab2.service;
 
 import makise.ooad.lab2.entity.GameStatus;
-import makise.ooad.lab2.pointgame.GameRunner;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -11,26 +10,8 @@ import java.util.ArrayList;
 //还是挺有用的
 @Service
 public class GameService {
-    private GameRunner gameRunner = new GameRunner();
 
-    public ArrayList<GameStatus> startGame(int[] bets){
-        gameRunner.initGameSetting(bets);
-        return gameRunner.startGame();
-    }
 
-    public ArrayList<GameStatus> hit(int id){
-        return gameRunner.hit(id);
-    }
 
-    public ArrayList<GameStatus> split(int id){
-        return gameRunner.split(id);
-    }
 
-    public ArrayList<GameStatus> stand(int id){
-        return gameRunner.stand(id);
-    }
-
-    public ArrayList<GameStatus> doubleBet(int id){
-        return gameRunner.doubleBet(id);
-    }
 }
