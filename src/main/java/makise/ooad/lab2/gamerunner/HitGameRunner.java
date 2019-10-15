@@ -20,6 +20,7 @@ public class HitGameRunner extends GameRunner {
 
     @Override
     protected Response echo(Request request) {
+//        测试用
 //        Response response = new Response();
 //        HashMap<String, Object> requestContent = request.getRequestContent();
 //        PointGame pointGame = (PointGame) requestContent.get("game");
@@ -27,6 +28,7 @@ public class HitGameRunner extends GameRunner {
 //        pointGame.setRound(pointGame.getRound() + 1);
 //        gameStatus.setRound(pointGame.getRound());
 //        response.addGameStatus(gameStatus);
+//        return response;
         return null;
     }
 }

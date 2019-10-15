@@ -21,6 +21,8 @@ public class GameController {
     @Autowired
     GameService gameService;
 
+//    允许的gameProgress有四种
+//    double split stand hit
     @GetMapping("gameProgress/{type}")
     public Response gameProgress(@PathVariable("type") String type, @RequestParam("id") int playerId){
         Request request = new Request();
@@ -29,36 +31,6 @@ public class GameController {
         requestContent.put("playerId",playerId);
         request.setRequestContent(requestContent);
         return gameService.gameContinue(request);
-    }
-
-    @GetMapping("hit/{id}")
-    public Response hit(@PathVariable("id") int playerId){
-        Request request = new Request();
-        request.setLevel("hit");
-        HashMap<String, Object> requestContent = new HashMap<>();
-        requestContent.put("playerId",playerId);
-        request.setRequestContent(requestContent);
-        return gameService.gameContinue(request);
-    }
-
-    @GetMapping("split/{id}")
-    public Response split(@PathVariable("id") int playerId){
-        Request request = new Request();
-        request.setLevel("split");
-        HashMap<String, Object> requestContent = new HashMap<>();
-        requestContent.put("playerId",playerId);
-        request.setRequestContent(requestContent);
-        return gameService.gameContinue(request);
-    }
-
-    @GetMapping("stand/{id}")
-    public Response stand(@PathVariable("id") int playerId){
-        return null;
-    }
-
-    @GetMapping("double/{id}")
-    public Response doubleBet(@PathVariable("id") int playerId){
-        return null;
     }
 
 }

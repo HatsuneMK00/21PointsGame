@@ -1,6 +1,7 @@
 package makise.ooad.lab2.controller;
 
 import makise.ooad.lab2.entity.GameStatus;
+import makise.ooad.lab2.entity.Request;
 import makise.ooad.lab2.entity.Response;
 import makise.ooad.lab2.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 @ResponseBody
 @Controller
@@ -19,8 +21,13 @@ public class BetController {
     GameService gameService;
 
 //    不知道数组放在url里传不传的过来
-    @GetMapping("bet")
+    @GetMapping("gameProgress/bet")
     public Response bet(@RequestParam("bets") int[] bets){
-        return null;
+        Request request = new Request();
+        request.setLevel("bet");
+        HashMap<String, Object> requestContent = new HashMap<>();
+        requestContent.put("bets",bets);
+        request.setRequestContent(requestContent);
+        return gameService.gameContinue(request);
     }
 }
