@@ -10,7 +10,9 @@ import java.util.ArrayList;
 public class PointGame {
     //    可以将0号玩家固定为庄家
     private ArrayList<Player> players = new ArrayList<>();
+//    发牌员
     private Dealer dealer = new Dealer();
+//    裁判
     private Judge judge = new Judge();
     private int round = 0;
 

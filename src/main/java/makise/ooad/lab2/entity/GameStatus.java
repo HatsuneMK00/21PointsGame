@@ -1,5 +1,7 @@
 package makise.ooad.lab2.entity;
 
+import makise.ooad.lab2.pointgame.Card;
+
 import java.util.ArrayList;
 
 //这个类的数组将被json化发给前端
@@ -11,7 +13,7 @@ public class GameStatus {
     //    balance小于0则游戏结束
     private int balance;
     //    手牌数组 按照发牌顺序 每次在最后添加
-    private ArrayList<Integer> hand;
+    private ArrayList<Card> hand;
     //    指示一轮是否结束
     private boolean isEnd;
     //    指示是否爆牌
@@ -47,11 +49,11 @@ public class GameStatus {
         this.balance = balance;
     }
 
-    public ArrayList<Integer> getHand() {
+    public ArrayList<Card> getHand() {
         return hand;
     }
 
-    public void setHand(ArrayList<Integer> hand) {
+    public void setHand(ArrayList<Card> hand) {
         this.hand = hand;
     }
 
