@@ -9,7 +9,10 @@ public class Card {
     public CardType getType() {
         return type;
     }
-
+    public Card(CardType type,int point){
+        this.type=type;
+        this.point = point;
+    }
     public void setType(CardType type) {
         this.type = type;
     }

@@ -1,13 +1,22 @@
 package makise.ooad.lab2.pointgame;
 
-public class House extends Gambler {
-    @Override
-    public void hit() {
+import makise.ooad.lab2.entity.GameStatus;
 
+public class House extends Gambler {
+    public House(int id, String name, int moneyAmount) {
+        super(id, name, moneyAmount);
     }
 
     @Override
-    public void stand() {
+    public void hit(Dealer dealer) {
+        while(hand.getHandPoint()<=17){
+            getOneCard(dealer);
+        }
+    }
 
+    @Override
+    public GameStatus stand() {
+        GameStatus gameStatus = new GameStatus(0,getBetNum(),money.getBalance(),hand.getCards(),hand.isBusted(),2);
+        return gameStatus;
     }
 }

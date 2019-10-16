@@ -1,12 +1,19 @@
 package makise.ooad.lab2.pointgame;
 
 public class Money {
-    int balance;
-    public void addMoney(){
-
+    private int balance;
+    public Money(int balance){
+        this.balance=balance;
+    }
+    public void addMoney(int amount){
+        balance+=amount;
     }
 
-    public void subtractMoney(){
+    public void subtractMoney(int amount){
+        balance-=amount;
+    }
 
+    public int getBalance() {
+        return balance;
     }
 }

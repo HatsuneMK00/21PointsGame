@@ -3,6 +3,8 @@ package makise.ooad.lab2.gamerunner;
 import makise.ooad.lab2.entity.GameStatus;
 import makise.ooad.lab2.entity.Request;
 import makise.ooad.lab2.entity.Response;
+import makise.ooad.lab2.pointgame.House;
+import makise.ooad.lab2.pointgame.Player;
 import makise.ooad.lab2.pointgame.PointGame;
 
 import java.util.ArrayList;
@@ -29,6 +31,13 @@ public class HitGameRunner extends GameRunner {
 //        gameStatus.setRound(pointGame.getRound());
 //        response.addGameStatus(gameStatus);
 //        return response;
-        return null;
-    }
-}
+        HashMap<String,Object> requestContent = request.getRequestContent();
+        PointGame pointGame = (PointGame) requestContent.get("game");
+        Integer id = (Integer) requestContent.get("playerId");
+        pointGame.getPlayers().get(id).getOneCard(pointGame.getDealer());
+        int turn = pointGame.getPlayers().get(id).getHand().isBusted()?0:id;
+        int round = pointGame.getRound()+1;
+        House house = pointGame.getHouse();
+        Response response = new Response(round,turn,false);
+        return capAndReturn(house,pointGame,response,2);
+    }}

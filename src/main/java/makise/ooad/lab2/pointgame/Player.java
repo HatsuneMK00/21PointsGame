@@ -1,23 +1,26 @@
 package makise.ooad.lab2.pointgame;
 
+import makise.ooad.lab2.entity.GameStatus;
+
 public class Player extends Gambler {
-    private int betNum;
-
-    @Override
-    public void hit() {
-
+    public Player(int id, String name, int moneyAmount) {
+        super(id, name, moneyAmount);
     }
 
     @Override
-    public void stand() {
-
+    public void hit(Dealer dealer) {
+        super.getOneCard(dealer);
     }
-
-    public int getBetNum() {
-        return betNum;
+    public boolean setBet(int amount){
+        if(money.getBalance()<amount)
+            return false;
+        money.subtractMoney(amount);
+        setBetNum(amount);
+        return true;
     }
-
-    public void setBetNum(int betNum) {
-        this.betNum = betNum;
+    @Override
+    public GameStatus stand() {
+        GameStatus gameStatus = new GameStatus(id,getBetNum(),money.getBalance(),hand.getCards(),hand.isBusted(),2);
+        return gameStatus;
     }
 }

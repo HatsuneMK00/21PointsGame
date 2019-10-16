@@ -3,6 +3,9 @@ package makise.ooad.lab2.gamerunner;
 import makise.ooad.lab2.entity.GameStatus;
 import makise.ooad.lab2.entity.Request;
 import makise.ooad.lab2.entity.Response;
+import makise.ooad.lab2.pointgame.House;
+import makise.ooad.lab2.pointgame.Player;
+import makise.ooad.lab2.pointgame.PointGame;
 
 import java.util.ArrayList;
 
@@ -18,13 +21,21 @@ public abstract class GameRunner {
         gameRunner.setNextGameRunner(temp1);
         GameRunner temp2 = new DoubleGameRunner();
         temp1.setNextGameRunner(temp2);
-        temp1 = new SplitGameRunner();
-        temp2.setNextGameRunner(temp1);
-        temp2 = new StandGameRunner();
+        temp1 = new StartGameGameRunner();
         temp1.setNextGameRunner(temp2);
         return gameRunner;
     }
-
+    protected Response capAndReturn(House house, PointGame pointGame,Response response,int isWin){
+        GameStatus houseStatus = new GameStatus(0,house.getBetNum(),house.getMoney().getBalance(),house.getHand().getCards(),
+                house.getHand().isBusted(),isWin);
+        response.addGameStatus(houseStatus);
+        for(Player player:pointGame.getPlayers()){
+            GameStatus tem = new GameStatus(player.getId(),player.getBetNum(),player.getMoney().getBalance(),
+                    player.getHand().getCards(),player.getHand().isBusted(),isWin);
+            response.addGameStatus(tem);
+        }
+        return response;
+    }
     public void setNextGameRunner(GameRunner nextGameRunner) {
         this.nextGameRunner = nextGameRunner;
     }

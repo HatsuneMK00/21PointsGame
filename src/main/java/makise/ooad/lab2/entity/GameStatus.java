@@ -14,16 +14,31 @@ public class GameStatus {
     private int balance;
     //    手牌数组 按照发牌顺序 每次在最后添加
     private ArrayList<Card> hand;
-    //    指示一轮是否结束
-    private boolean isEnd;
+    //    玩家是否赢得游戏 -1表示输，0表示平局，1表示赢，2表示还未结算
+    private int isWin;
     //    指示是否爆牌
     private boolean isBust;
     //    用于显示这是当前的第几轮
-    private int round;
-    //    用于指示接下来是玩家行动还是电脑行动
-//    0表示电脑 其他数字对应玩家id
-//    这个属性注意保持数组中所有对象一致
-    private int turn;
+
+    public GameStatus(){
+
+    }
+    public GameStatus(int id,int betNum,int balance,ArrayList<Card> hand,boolean isBust,int isWin){
+        this.id = id;
+        this.betNum = betNum;
+        this.balance = balance;
+        this.hand = hand;
+        this.isBust = isBust;
+        this.isWin = isWin;
+    }
+
+    public int getIsWin() {
+        return isWin;
+    }
+
+    public void setIsWin(int isWin) {
+        this.isWin = isWin;
+    }
 
     public int getId() {
         return id;
@@ -57,35 +72,11 @@ public class GameStatus {
         this.hand = hand;
     }
 
-    public boolean isEnd() {
-        return isEnd;
-    }
-
-    public void setEnd(boolean end) {
-        isEnd = end;
-    }
-
     public boolean isBust() {
         return isBust;
     }
 
     public void setBust(boolean bust) {
         isBust = bust;
-    }
-
-    public int getRound() {
-        return round;
-    }
-
-    public void setRound(int round) {
-        this.round = round;
-    }
-
-    public int getTurn() {
-        return turn;
-    }
-
-    public void setTurn(int turn) {
-        this.turn = turn;
     }
 }
