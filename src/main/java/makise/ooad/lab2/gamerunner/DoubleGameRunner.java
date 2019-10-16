@@ -26,15 +26,13 @@ public class DoubleGameRunner extends GameRunner {
         int id = (Integer) requestContent.get("playerId");
         PointGame pointGame = (PointGame) requestContent.get("game");
         Player currentPlayer = pointGame.getPlayers().get(id);
-        currentPlayer.setBetNum(currentPlayer.getBetNum()*2);
-        currentPlayer.getMoney().subtractMoney(currentPlayer.getBetNum());
+        currentPlayer.addBet(currentPlayer.getBetNum());
         House house = pointGame.getHouse();
-        house.setBetNum(currentPlayer.getBetNum()*2);
-        house.getMoney().subtractMoney(currentPlayer.getBetNum());
+        house.addBet(currentPlayer.getBetNum());
         currentPlayer.hit(pointGame.getDealer());
-        int turn = 0;
+        int turn = (id+1)%pointGame.getPlayers().size();
         int round = pointGame.getRound()+1;
         Response response = new Response(round,turn,false);
-        return capAndReturn(house,pointGame,response,2);
+        return capAndReturn(house,pointGame,response,null);
     }
 }

@@ -8,8 +8,11 @@ public class Player extends Gambler {
     }
 
     @Override
-    public void hit(Dealer dealer) {
+    public boolean hit(Dealer dealer) {
         super.getOneCard(dealer);
+        if(hand.isBusted())
+            return true;
+        return false;
     }
     public boolean setBet(int amount){
         if(money.getBalance()<amount)
@@ -17,10 +20,5 @@ public class Player extends Gambler {
         money.subtractMoney(amount);
         setBetNum(amount);
         return true;
-    }
-    @Override
-    public GameStatus stand() {
-        GameStatus gameStatus = new GameStatus(id,getBetNum(),money.getBalance(),hand.getCards(),hand.isBusted(),2);
-        return gameStatus;
     }
 }

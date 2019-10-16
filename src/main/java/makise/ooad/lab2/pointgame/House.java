@@ -8,15 +8,12 @@ public class House extends Gambler {
     }
 
     @Override
-    public void hit(Dealer dealer) {
+    public boolean hit(Dealer dealer) {
         while(hand.getHandPoint()<=17){
             getOneCard(dealer);
+            if(hand.isBusted())
+                return true;
         }
-    }
-
-    @Override
-    public GameStatus stand() {
-        GameStatus gameStatus = new GameStatus(0,getBetNum(),money.getBalance(),hand.getCards(),hand.isBusted(),2);
-        return gameStatus;
+        return false;
     }
 }

@@ -34,10 +34,12 @@ public class HitGameRunner extends GameRunner {
         HashMap<String,Object> requestContent = request.getRequestContent();
         PointGame pointGame = (PointGame) requestContent.get("game");
         Integer id = (Integer) requestContent.get("playerId");
-        pointGame.getPlayers().get(id).getOneCard(pointGame.getDealer());
-        int turn = pointGame.getPlayers().get(id).getHand().isBusted()?0:id;
+        int turn = id;
+        if(pointGame.getPlayers().get(id).hit(pointGame.getDealer())) {
+            turn=(id+1)%pointGame.getPlayers().size();
+        }
         int round = pointGame.getRound()+1;
         House house = pointGame.getHouse();
         Response response = new Response(round,turn,false);
-        return capAndReturn(house,pointGame,response,2);
+        return capAndReturn(house,pointGame,response,null);
     }}

@@ -8,6 +8,7 @@ import makise.ooad.lab2.pointgame.House;
 import makise.ooad.lab2.pointgame.Player;
 import makise.ooad.lab2.pointgame.PointGame;
 import org.graalvm.compiler.hotspot.stubs.CreateExceptionStub;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -27,13 +28,30 @@ public class StandGameRunner extends GameRunner {
         HashMap<String,Object> requestContent = request.getRequestContent();
         int id = (Integer) requestContent.get("playerId");
         PointGame pointGame = (PointGame) requestContent.get("game");
+        int turn=id;
         House house = pointGame.getHouse();
-        house.hit(pointGame.getDealer());
-        Player currentPlayer = pointGame.getPlayers().get(id);
-        int isWin = pointGame.getJudge().judge(house,currentPlayer);
-        int turn = id+1;
         boolean isEnd = id==pointGame.getPlayers().size();
+        int[] winStatus = null;
+        if(id==0) {//如果传进来的id已经为0，则说明之前最后一个玩家在hit或double时进入了bust状态，则庄家行动，并直接进入结算
+            house.hit(pointGame.getDealer());
+            winStatus=payOff(pointGame);
+        } else {//如果不为零，turn+1
+            turn = (id+1)%pointGame.getPlayers().size();
+            if(isEnd){//如果发现选择stand的是最后一名玩家，则庄家行动，进入结算
+                house.hit(pointGame.getDealer());
+                winStatus=payOff(pointGame);
+            }
+        }
         Response response = new Response(pointGame.getRound()+1,turn,isEnd);
-        return capAndReturn(house,pointGame, response,isWin);
+        return capAndReturn(house,pointGame, response,winStatus);
+    }
+    private int[] payOff(@NotNull PointGame pointGame){
+        int[] winStatus = new int[pointGame.getPlayers().size()];
+        int i = 0;//winStatus数组的下标和player的下标是错位的，注意!!!
+        House house = pointGame.getHouse();
+        for(Player player : pointGame.getPlayers()){
+            winStatus[i++]=pointGame.getJudge().judge(house,player);
+        }
+        return winStatus;
     }
 }

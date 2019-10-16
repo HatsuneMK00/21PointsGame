@@ -25,14 +25,27 @@ public abstract class GameRunner {
         temp1.setNextGameRunner(temp2);
         return gameRunner;
     }
-    protected Response capAndReturn(House house, PointGame pointGame,Response response,int isWin){
-        GameStatus houseStatus = new GameStatus(0,house.getBetNum(),house.getMoney().getBalance(),house.getHand().getCards(),
-                house.getHand().isBusted(),isWin);
-        response.addGameStatus(houseStatus);
-        for(Player player:pointGame.getPlayers()){
-            GameStatus tem = new GameStatus(player.getId(),player.getBetNum(),player.getMoney().getBalance(),
-                    player.getHand().getCards(),player.getHand().isBusted(),isWin);
-            response.addGameStatus(tem);
+    protected Response capAndReturn(House house, PointGame pointGame,Response response,int[] winStatus){
+        if(winStatus==null){
+            GameStatus houseStatus = new GameStatus(0,house.getBetNum(),house.getMoney().getBalance(),house.getHand().getCards(),
+                    house.getHand().isBusted(),2);
+            response.addGameStatus(houseStatus);
+            for(Player player:pointGame.getPlayers()){
+                GameStatus tem = new GameStatus(player.getId(),player.getBetNum(),player.getMoney().getBalance(),
+                        player.getHand().getCards(),player.getHand().isBusted(),2);
+                response.addGameStatus(tem);
+            }
+        }
+        else {
+            GameStatus houseStatus = new GameStatus(0,house.getBetNum(),house.getMoney().getBalance(),house.getHand().getCards(),
+                    house.getHand().isBusted(),2);
+            response.addGameStatus(houseStatus);
+            int i = 0;
+            for(Player player:pointGame.getPlayers()) {
+                GameStatus tem = new GameStatus(player.getId(), player.getBetNum(), player.getMoney().getBalance(),
+                        player.getHand().getCards(), player.getHand().isBusted(), winStatus[i++]);
+                response.addGameStatus(tem);
+            }
         }
         return response;
     }

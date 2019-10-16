@@ -69,6 +69,9 @@ abstract class Gambler {
     public void setBetNum(int betNum) {
         hand.setBetNum(betNum);
     }
-    public abstract void hit(Dealer dealer);
-    public abstract GameStatus stand();
+    public abstract boolean hit(Dealer dealer);
+    public void addBet(int amount){
+        hand.setBetNum(hand.getBetNum()+amount);
+        money.subtractMoney(amount);
+    }
 }
