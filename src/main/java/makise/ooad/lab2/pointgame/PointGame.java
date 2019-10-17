@@ -56,4 +56,12 @@ public class PointGame {
     public void setRound(int round) {
         this.round = round;
     }
+
+    public void reset(){
+        house = new House(0,"house",Integer.MAX_VALUE);
+        players.clear();
+        dealer = new Dealer();
+        judge = new Judge();
+        round = 0;
+    }
 }

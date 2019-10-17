@@ -22,7 +22,7 @@ public abstract class GameRunner {
         GameRunner temp2 = new DoubleGameRunner();
         temp1.setNextGameRunner(temp2);
         temp1 = new StartGameGameRunner();
-        temp1.setNextGameRunner(temp2);
+        temp2.setNextGameRunner(temp1);
         return gameRunner;
     }
     protected Response capAndReturn(House house, PointGame pointGame,Response response,int[] winStatus){
@@ -67,7 +67,7 @@ public abstract class GameRunner {
                 System.out.println(this.getClass().getName() + " dispatcher");
                 response = nextGameRunner.handleRequest(request);
             } else {
-//                没有处理者时的处理逻辑
+                System.out.println("cannot not be handled");
             }
         }
         return response;
