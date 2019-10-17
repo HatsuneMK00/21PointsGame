@@ -35,8 +35,8 @@ public class HitGameRunner extends GameRunner {
         PointGame pointGame = (PointGame) requestContent.get("game");
         Integer id = (Integer) requestContent.get("playerId");
         int turn = id;
-        if(pointGame.getPlayers().get(id).hit(pointGame.getDealer())) {
-            turn=(id+1)%pointGame.getPlayers().size();
+        if(pointGame.getPlayers().get(id-1).hit(pointGame.getDealer())) {
+            turn=(id+1)%(pointGame.getPlayers().size()+1);
         }
         int round = pointGame.getRound()+1;
         House house = pointGame.getHouse();
