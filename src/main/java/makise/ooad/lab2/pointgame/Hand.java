@@ -30,8 +30,8 @@ public class Hand {
 
     public boolean addCard(Card card){
         cards.add(card);
-        if(getHandPoint()>21) return false;
-        else return true;
+        if(getHandPoint()>21) return true;
+        return false;
     }
     public int getHandPoint(){
         int result=0;

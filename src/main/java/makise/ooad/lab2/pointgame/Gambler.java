@@ -23,7 +23,7 @@ abstract class Gambler {
     }
 
     public void getOneCard(Dealer dealer){
-        if(!hand.addCard(dealer.deal()))
+        if(hand.addCard(dealer.deal()))
             bust();
     }
 

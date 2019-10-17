@@ -5,9 +5,11 @@ import makise.ooad.lab2.entity.Response;
 import makise.ooad.lab2.gamerunner.GameRunner;
 import makise.ooad.lab2.gamerunner.StartGameGameRunner;
 import makise.ooad.lab2.pointgame.PointGame;
+import makise.ooad.lab2.service.GameService;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -19,6 +21,9 @@ import static org.junit.jupiter.api.Assertions.*;
 class BetControllerTest {
     @Autowired
     PointGame game;
+    @Autowired
+    GameService gameService;
+    private GameRunner gameRunner = GameRunner.constructGameRunnerCOR();
 
     @Test
     void bet() {
@@ -30,9 +35,16 @@ class BetControllerTest {
         assertNotNull(game);
         map.put("game",game);
         request.setRequestContent(map);
-        GameRunner gameRunner = new StartGameGameRunner();
         Response response = gameRunner.handleRequest(request);
         assertNotNull(response);
         System.out.println(response);
+        System.out.println(game.getPlayers().size());
+
     }
+
+//    @Test
+//    void intClassTest(){
+//        int[] bets = {1,2,3,4,5};
+//        System.out.println(bets.getClass());
+//    }
 }

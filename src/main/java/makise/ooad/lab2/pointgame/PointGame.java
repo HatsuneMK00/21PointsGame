@@ -9,7 +9,7 @@ import java.util.ArrayList;
 @Component
 public class PointGame {
     //  庄家显式储存，与player列表分开
-    private House house = new House(0,"house",Integer.MAX_VALUE);
+    private House house = new House(0,"house",10000);
     private ArrayList<Player> players = new ArrayList<>();
     //    发牌员
     private Dealer dealer = new Dealer();
@@ -55,5 +55,13 @@ public class PointGame {
 
     public void setRound(int round) {
         this.round = round;
+    }
+
+    public void reset(){
+        house = new House(0,"house",Integer.MAX_VALUE);
+        players.clear();
+        dealer = new Dealer();
+        judge = new Judge();
+        round = 0;
     }
 }

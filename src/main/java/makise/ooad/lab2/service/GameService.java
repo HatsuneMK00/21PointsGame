@@ -24,15 +24,21 @@ public class GameService {
 
     public Response gameContinue(Request request){
         request.getRequestContent().put("game",game);
-        if (game == null) {
-            System.out.println("game nashi");
+//        if (game == null) {
+//            System.out.println("game nashi");
+//            return null;
+//        }
+//        由于实现的原因 单独调用了一次责任链中的处理函数 新的ResetGameRunner无法正常的加进责任链
+//        在这边进行特殊处理
+        if (request.getLevel().equals("reset")) {
+            game.reset();
             return null;
         }
         Response response = gameRunner.handleRequest(request);
-        if (response == null) {
-            System.out.println("what???");
-            return response;
-        }
+//        if (response == null) {
+//            System.out.println("what???");
+//            return response;
+//        }
         if (response.getTurn() == 0) {
             request.getRequestContent().put("playerId",0);
             request.setLevel("stand");
