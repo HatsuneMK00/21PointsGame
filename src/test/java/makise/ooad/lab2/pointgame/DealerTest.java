@@ -8,4 +8,10 @@ public class DealerTest {
         Dealer dealer = new Dealer();
         Hand hand = dealer.start();
     }
+
+    @Test
+    void randomGetDifferentNumber(){
+        Dealer dealer = new Dealer();
+        dealer.deal();
+    }
 }

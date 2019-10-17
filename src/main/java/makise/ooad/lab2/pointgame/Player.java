@@ -14,11 +14,8 @@ public class Player extends Gambler {
             return true;
         return false;
     }
-    public boolean setBet(int amount){
-        if(money.getBalance()<amount)
-            return false;
+    public void setBet(int amount){
         money.subtractMoney(amount);
         setBetNum(amount);
-        return true;
     }
 }

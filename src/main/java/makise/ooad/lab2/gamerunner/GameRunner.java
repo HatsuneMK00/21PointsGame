@@ -64,7 +64,7 @@ public abstract class GameRunner {
             response = this.echo(request);
         } else {
             if (nextGameRunner != null) {
-                System.out.println(this.getClass().getName() + " dispatcher");
+//                System.out.println(this.getClass().getName() + " dispatcher");
                 response = nextGameRunner.handleRequest(request);
             } else {
                 System.out.println("cannot not be handled");

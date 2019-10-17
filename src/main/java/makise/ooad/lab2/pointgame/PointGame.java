@@ -58,7 +58,7 @@ public class PointGame {
     }
 
     public void reset(){
-        house = new House(0,"house",Integer.MAX_VALUE);
+        house = new House(0,"house",10000);
         players.clear();
         dealer = new Dealer();
         judge = new Judge();

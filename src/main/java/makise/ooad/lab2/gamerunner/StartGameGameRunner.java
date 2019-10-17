@@ -34,7 +34,6 @@ public class StartGameGameRunner extends GameRunner {
             Player player = new Player(i,"HarveyNo."+i++,2000);
             player.getHand(pointGame.getDealer());
             player.setBet(bet);
-            player.getMoney().subtractMoney(bet);
             house.addBet(bet);
             pointGame.getPlayers().add(player);
         }
