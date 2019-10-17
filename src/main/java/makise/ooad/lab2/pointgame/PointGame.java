@@ -11,9 +11,9 @@ public class PointGame {
     //  庄家显式储存，与player列表分开
     private House house;
     private ArrayList<Player> players = new ArrayList<>();
-//    发牌员
+    //    发牌员
     private Dealer dealer = new Dealer();
-//    裁判
+    //    裁判
     private Judge judge = new Judge();
     private int round = 0;
 
