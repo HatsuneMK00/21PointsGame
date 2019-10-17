@@ -36,6 +36,7 @@ public class StandGameRunner extends GameRunner {
         } else {//如果不为零，turn+1
             turn = (id+1)%(pointGame.getPlayers().size()+1);
             if(isEnd){//如果发现选择stand的是最后一名玩家，则庄家行动，进入结算
+                turn=-1;
                 house.hit(pointGame.getDealer());
                 winStatus=payOff(pointGame);
             }

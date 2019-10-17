@@ -26,9 +26,9 @@ public class DoubleGameRunner extends GameRunner {
         int id = (Integer) requestContent.get("playerId");
         PointGame pointGame = (PointGame) requestContent.get("game");
         Player currentPlayer = pointGame.getPlayers().get(id-1);
-        currentPlayer.addBet(currentPlayer.getBetNum());
         House house = pointGame.getHouse();
         house.addBet(currentPlayer.getBetNum());
+        currentPlayer.addBet(currentPlayer.getBetNum());
         currentPlayer.hit(pointGame.getDealer());
         int turn = (id+1)%(pointGame.getPlayers().size()+1);
         int round = pointGame.getRound()+1;

@@ -43,6 +43,7 @@ public class Hand {
         }
         while(result>21&&numOfA>0){
             result-=10;
+            numOfA--;
         }
         return result;
     }
