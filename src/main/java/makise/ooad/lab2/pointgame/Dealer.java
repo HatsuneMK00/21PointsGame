@@ -19,7 +19,12 @@ public class Dealer {
     public Card deal() {
         Random rc = new Random(System.currentTimeMillis());
         int type = rc.nextInt(3);
-        int point = rc.nextInt(13);
+        int point = rc.nextInt(12);
+        while(cards[type][point]<=0){
+            type = rc.nextInt(3);
+            point = rc.nextInt(12);
+        }
+        cards[type][point]-=1;
         Card tem;
         if(point==0) point=11;
         else if(point>=10) point = 10;
