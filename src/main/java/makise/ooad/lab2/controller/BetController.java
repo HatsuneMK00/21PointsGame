@@ -24,7 +24,7 @@ public class BetController {
     @GetMapping("gameProgress/bet")
     public Response bet(@RequestParam("bets") int[] bets){
         Request request = new Request();
-        request.setLevel("bet");
+        request.setLevel("start");
         HashMap<String, Object> requestContent = new HashMap<>();
         requestContent.put("bets",bets);
         request.setRequestContent(requestContent);

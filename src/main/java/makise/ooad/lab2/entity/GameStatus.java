@@ -79,4 +79,16 @@ public class GameStatus {
     public void setBust(boolean bust) {
         isBust = bust;
     }
+
+    @Override
+    public String toString() {
+        return "GameStatus{" +
+                "id=" + id +
+                ", betNum=" + betNum +
+                ", balance=" + balance +
+                ", hand=" + hand +
+                ", isWin=" + isWin +
+                ", isBust=" + isBust +
+                '}';
+    }
 }
