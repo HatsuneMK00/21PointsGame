@@ -24,6 +24,10 @@ public class GameService {
 
     public Response gameContinue(Request request){
         request.getRequestContent().put("game",game);
+        if (game == null) {
+            System.out.println("game nashi");
+            return null;
+        }
         Response response = gameRunner.handleRequest(request);
         if (response == null) {
             System.out.println("what???");

@@ -26,6 +26,17 @@ public class BetController {
         Request request = new Request();
         request.setLevel("start");
         HashMap<String, Object> requestContent = new HashMap<>();
+//        测试用
+        if (bets == null){
+            System.out.println("no bets");
+            return null;
+        }
+        for (int i:bets
+             ) {
+            System.out.println(i);
+        }
+        System.out.println(bets.getClass());
+
         requestContent.put("bets",bets);
         request.setRequestContent(requestContent);
         return gameService.gameContinue(request);
