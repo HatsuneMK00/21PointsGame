@@ -46,4 +46,14 @@ public class Response {
     public void addGameStatus(GameStatus gameStatus) {
         this.gameStatuses.add(gameStatus);
     }
+
+    @Override
+    public String toString() {
+        return "Response{" +
+                "round=" + round +
+                ", turn=" + turn +
+                ", isEnd=" + isEnd +
+                ", gameStatuses=" + gameStatuses +
+                '}';
+    }
 }

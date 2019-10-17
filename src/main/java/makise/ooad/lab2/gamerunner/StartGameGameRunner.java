@@ -29,11 +29,14 @@ public class StartGameGameRunner extends GameRunner {
         int[] bets = (int[]) requestContent.get("bets");
         House house = pointGame.getHouse();
         house.getHand(pointGame.getDealer());
-        int i=0;//小标从0开始，与玩家的下标是错位的
-        for(Player player : pointGame.getPlayers()){
-            player.setBetNum(i);
+        int i=1;//下标从0开始，与玩家的下标是错位的
+        for(int bet : bets){
+            Player player = new Player(i,"HarveyNo."+i++,2000);
             player.getHand(pointGame.getDealer());
-            house.addBet(i++);
+            player.setBet(bet);
+            player.getMoney().subtractMoney(bet);
+            house.addBet(bet);
+            pointGame.getPlayers().add(player);
         }
         int turn = 1;
         Response response = new Response(1,turn,false);

@@ -24,6 +24,16 @@ public class GameService {
 
     public Response gameContinue(Request request){
         request.getRequestContent().put("game",game);
-        return gameRunner.handleRequest(request);
+        Response response = gameRunner.handleRequest(request);
+        if (response == null) {
+            System.out.println("what???");
+            return response;
+        }
+        if (response.getTurn() == 0) {
+            request.getRequestContent().put("playerId",0);
+            request.setLevel("stand");
+            response = gameRunner.handleRequest(request);
+        }
+        return response;
     }
 }
