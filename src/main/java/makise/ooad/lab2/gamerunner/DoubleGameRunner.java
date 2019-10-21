@@ -31,7 +31,7 @@ public class DoubleGameRunner extends GameRunner {
         currentPlayer.addBet(currentPlayer.getBetNum());
         currentPlayer.hit(pointGame.getDealer());
         int turn = (id+1)%(pointGame.getPlayers().size()+1);
-        int round = pointGame.getRound()+1;
+        int round = pointGame.getRound();
         Response response = new Response(round,turn,false);
         return capAndReturn(house,pointGame,response,null);
     }

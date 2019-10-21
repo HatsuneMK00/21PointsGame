@@ -33,6 +33,8 @@ public class StandGameRunner extends GameRunner {
         if(id==0) {//如果传进来的id已经为0，则说明之前最后一个玩家在hit或double时进入了bust状态，则庄家行动，并直接进入结算
             house.hit(pointGame.getDealer());
             winStatus=payOff(pointGame);
+            isEnd=true;
+            turn = -1;
         } else {//如果不为零，turn+1
             turn = (id+1)%(pointGame.getPlayers().size()+1);
             if(isEnd){//如果发现选择stand的是最后一名玩家，则庄家行动，进入结算
@@ -41,7 +43,7 @@ public class StandGameRunner extends GameRunner {
                 winStatus=payOff(pointGame);
             }
         }
-        Response response = new Response(pointGame.getRound()+1,turn,isEnd);
+        Response response = new Response(pointGame.getRound(),turn,isEnd);
         return capAndReturn(house,pointGame, response,winStatus);
     }
     private int[] payOff(@NotNull PointGame pointGame){

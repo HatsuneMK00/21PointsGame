@@ -19,7 +19,13 @@ public class Dealer {
             }
         }
     }
-
+    public void shuffle(){
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 13; j++) {
+                cards[i][j] = 4;
+            }
+        }
+    }
     public Card deal() {
         int type = rc.nextInt(3);
         int point = rc.nextInt(12);
