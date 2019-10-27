@@ -2,7 +2,7 @@
 
 ## api使用说明
 
-启动SpringBoot程序后，访问http://localhost:8080/swagger-ui.html可以看到接口的文档
+启动SpringBoot程序后，访问 http://localhost:8080/swagger-ui.html 可以看到接口的文档
 
 ## 使用示例
 
