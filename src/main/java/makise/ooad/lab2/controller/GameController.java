@@ -17,6 +17,7 @@ import java.util.HashMap;
 //负责处理和所有游戏进程相关的请求
 @Controller
 @ResponseBody
+@CrossOrigin
 public class GameController {
     @Autowired
     GameService gameService;

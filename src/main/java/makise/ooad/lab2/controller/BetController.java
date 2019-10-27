@@ -16,6 +16,7 @@ import java.util.HashMap;
 
 @ResponseBody
 @Controller
+@CrossOrigin
 public class BetController {
     @Autowired
     GameService gameService;

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>21PointsGame</title>
+    <link href="style.css" rel="stylesheet">
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"
+            type="text/javascript"></script>
+</head>
+<body>
+
+<div id="container">
+    <div id="house" >
+        <h1>庄家:</h1>
+        <div id="house_card_container"></div>
+    </div>
+    <div id="player">
+        <h1>玩家:</h1>
+        <div id="player_card_container"></div>
+    </div>
+    <div id="tips">
+        <h1>游戏信息：</h1>
+        <ul>
+            <li><h2>轮数：</h2><output id="game_round"></output></li>
+            <li><h2>余额：</h2><output id="player_balance"></output></li>
+        </ul>
+        <div id="operation">
+            <button class="btn" id="hit" onclick="requestServer('http://localhost:8080/gameProgress/gameProgress/hit?id=1')">拿牌</button>
+            <button class="btn" id="double" onclick="requestServer('http://localhost:8080/gameProgress/double?id=1')">翻倍</button>
+            <button class="btn" id="stand" onclick="requestServer('http://localhost:8080/gameProgress/stand?id=1')" >停牌</button>
+            <button class="btn" id="reset" onclick="requestServer('http://localhost:8080/gameProgress/reset?id=0')" >重置</button>
+            <label> 赌注： <input id="player_bet" name="playerBet" type="text" value="30"> </label>
+            <button class="btn" id="bet" onclick="requestServer('http://localhost:8080/gameProgress/bet')" >下注</button>
+        </div>
+    </div>
+
+</div>
+<script src="output.js"></script>
+</body>
+</html>

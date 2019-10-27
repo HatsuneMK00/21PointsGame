@@ -1,0 +1,22 @@
+body {
+    background-image: url("img/markus-spiske-QOuHmf0_qqk-unsplash.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#house{
+    position: absolute;
+    top: 0px;
+    left: 10px;
+}
+#tips{
+    position: absolute;
+    top: 10px;
+    left: 750px;
+    height: 500px;
+    width: 500px;
+}
+#player{
+    position: absolute;
+    top: 250px;
+    left: 10px;
+}
