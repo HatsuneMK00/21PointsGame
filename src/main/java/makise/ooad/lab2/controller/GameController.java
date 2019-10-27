@@ -1,5 +1,6 @@
 package makise.ooad.lab2.controller;
 
+import io.swagger.annotations.ApiOperation;
 import makise.ooad.lab2.entity.GameStatus;
 import makise.ooad.lab2.entity.Request;
 import makise.ooad.lab2.entity.Response;
@@ -23,6 +24,7 @@ public class GameController {
 
 //    允许的gameProgress有四种
 //    double split stand hit
+    @ApiOperation(value = "触发游戏进程",notes = "通过调用不同type的游戏选项（有3种），推进游戏进程")
     @GetMapping("gameProgress/{type}")
     public Response gameProgress(@PathVariable("type") String type, @RequestParam("id") int playerId){
         Request request = new Request();
