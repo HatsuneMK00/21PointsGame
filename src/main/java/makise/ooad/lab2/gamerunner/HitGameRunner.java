@@ -38,7 +38,7 @@ public class HitGameRunner extends GameRunner {
         if(pointGame.getPlayers().get(id-1).hit(pointGame.getDealer())) {
             turn=(id+1)%(pointGame.getPlayers().size()+1);
         }
-        int round = pointGame.getRound()+1;
+        int round = pointGame.getRound();
         House house = pointGame.getHouse();
         Response response = new Response(round,turn,false);
         return capAndReturn(house,pointGame,response,null);
