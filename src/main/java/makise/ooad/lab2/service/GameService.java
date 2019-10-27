@@ -28,8 +28,9 @@ public class GameService {
 //            System.out.println("game nashi");
 //            return null;
 //        }
-//        由于实现的原因 单独调用了一次责任链中的处理函数 新的ResetGameRunner无法正常的加进责任链
-//        在这边进行特殊处理
+
+//如果获取到的是reset，则重置后直接返回
+//        这里使用了和其他部分不一样的逻辑 不易于管理
         if (request.getLevel().equals("reset")) {
             game.reset();
             return null;
@@ -39,6 +40,8 @@ public class GameService {
 //            System.out.println("what???");
 //            return response;
 //        }
+//        由于实现的原因 单独调用了一次责任链中的处理函数 新的ResetGameRunner无法正常的加进责任链
+//        在这边进行特殊处理
         if (response.getTurn() == 0) {
             request.getRequestContent().put("playerId",0);
             request.setLevel("stand");

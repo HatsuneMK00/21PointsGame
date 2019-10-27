@@ -1,15 +1,15 @@
 package makise.ooad.lab2.controller;
 
+import com.google.common.util.concurrent.AbstractExecutionThreadService;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiOperation;
 import makise.ooad.lab2.entity.GameStatus;
 import makise.ooad.lab2.entity.Request;
 import makise.ooad.lab2.entity.Response;
 import makise.ooad.lab2.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,9 +20,11 @@ public class BetController {
     @Autowired
     GameService gameService;
 
-//    不知道数组放在url里传不传的过来
+    //    不知道数组放在url里传不传的过来
+    @ApiOperation(value = "每位玩家下注并开始游戏", notes = "传入一个bets数组")
+    @ApiImplicitParam(name = "bets", value = "按照顺序传入每位玩家下的注并开始游戏，调用后会给所有人发两张牌，即进入游戏开始状态", required = true)
     @GetMapping("gameProgress/bet")
-    public Response bet(@RequestParam("bets") int[] bets){
+    public Response bet(@RequestParam("bets") int[] bets) {
         Request request = new Request();
         request.setLevel("start");
         HashMap<String, Object> requestContent = new HashMap<>();
@@ -37,7 +39,7 @@ public class BetController {
 //        }
 //        System.out.println(bets.getClass());
 
-        requestContent.put("bets",bets);
+        requestContent.put("bets", bets);
         request.setRequestContent(requestContent);
         return gameService.gameContinue(request);
     }

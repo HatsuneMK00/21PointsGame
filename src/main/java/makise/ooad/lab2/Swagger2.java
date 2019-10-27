@@ -19,7 +19,7 @@ public class Swagger2 {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("xyz.makise.ooad.lab2.controller"))
+                .apis(RequestHandlerSelectors.basePackage("makise.ooad.lab2.controller"))
                 .paths(PathSelectors.any())
                 .build();
     }
