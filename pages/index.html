@@ -26,12 +26,14 @@
             <li><h2>余额：</h2><output id="player_balance"></output></li>
         </ul>
         <div id="operation">
-            <button class="btn" id="hit" onclick="requestServer('http://localhost:8080/gameProgress/gameProgress/hit?id=1')">拿牌</button>
-            <button class="btn" id="double" onclick="requestServer('http://localhost:8080/gameProgress/double?id=1')">翻倍</button>
-            <button class="btn" id="stand" onclick="requestServer('http://localhost:8080/gameProgress/stand?id=1')" >停牌</button>
-            <button class="btn" id="reset" onclick="requestServer('http://localhost:8080/gameProgress/reset?id=0')" >重置</button>
             <label> 赌注： <input id="player_bet" name="playerBet" type="text" value="30"> </label>
-            <button class="btn" id="bet" onclick="requestServer('http://localhost:8080/gameProgress/bet')" >下注</button>
+            <button class="btn" id="bet" onclick="bet()" >下注</button>
+            <br><br>
+            <button class="btn" id="hit" onclick="hit()" >拿牌</button>
+            <button class="btn" id="double" onclick="double()" >加倍</button>
+            <button class="btn" id="stand" onclick="stand()" >停牌</button>
+            <button class="btn" id="reset" onclick="reset()" >重置</button>
+
         </div>
     </div>
 
